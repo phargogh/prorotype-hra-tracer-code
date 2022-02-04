@@ -49,6 +49,10 @@ def main():
     #
     # Do zonal statistics
 
+    # TODO: move pandas-based paths into the execute function
+    # TODO: replace _get_vector_geometries_by_field with OGRSQL
+    # TODO: Look at _tot_recovery_op -- normalizing which it should not?
+
 
 
 if __name__ == '__main__':
