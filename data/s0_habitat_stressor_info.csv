@@ -1,0 +1,10 @@
+NAME,PATH,TYPE,STRESSOR BUFFER (meters)
+corals,habitat\corals.shp,habitat,
+agric_runoff,stressors\s0\s0_agric_runoff.shp,stressor,0
+aquaculture,stressors\s0\s0_aquaculture.shp,stressor,225
+development,stressors\s0\s0_development.shp,stressor,1500
+dredging,stressors\s0\s0_dredging.shp,stressor,1000
+fishing,stressors\s0\s0_fishing.shp,stressor,100
+oil,stressors\s0\s0_oil.shp,stressor,1000
+recreation,stressors\s0\s0_recreation.shp,stressor,100
+transportation,stressors\s0\s0_transportation.shp,stressor,1000
