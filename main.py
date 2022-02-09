@@ -3,7 +3,7 @@ def main():
 
     # TODO: how to handle spatially explicit criteria?
 
-    # workflow:
+    # Current (3.10.1) workflow:
     #
     # Align inputs to the AOI
     # Rasterize the AOI.
@@ -53,6 +53,44 @@ def main():
     # TODO: replace _get_vector_geometries_by_field with OGRSQL
     # TODO: Look at _tot_recovery_op -- normalizing which it should not?
 
+    # What I think the workflow can become.
+    #
+    # Data Prep:
+    #   * Simplify the AOI and rasterize
+    #   * For each habitat/stressor file:
+    #       * Simplify and rasterize.
+    #       * If a stressor, do an EDT and mask to the buffer distance.
+    #   * For each criterion:
+    #       * if the criterion is a spatial raster, do nothing.
+    #       * if the criterion is a spatial vector, simplify and rasterize
+    #       * if the criterion is numeric, keeping as a number would save disk
+    #         accesses, making a new raster might allow for a cleaner
+    #         implementation.  TODO: pick an approach
+    #   * Align the stack of spatial inputs, taking the bbox union,
+    #     reprojecting to the AOI.
+    #
+    # Count the number of habitats overlapping on a pixel
+    # Count the number of stressors overlapping on a pixel
+    #
+    # For each habitat:
+    #   Calculate habitat recovery
+    #
+    #   For each stressor:
+    #       * Calculate the pairwise exposure score
+    #       * Calculate the pairwise consequence score
+    #       * given pairwise exposure, consequence scores, calculate risk
+    #       * reclassify pairwise risk into high/med/low
+    #
+    #   Calculate cumulative exposure
+    #   Calculate cumulative consequence
+    #   Calculate cumulative risk for this habitat
+    #   Reclassify risk to habitat
+    #
+    # Compute total risk to the ecosystem
+    # Reclassify the total ecosystem risk
+    #
+    # Do zonal statistics.
+    # If requested, create geojson outputs for visualization.
 
 
 if __name__ == '__main__':
