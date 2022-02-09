@@ -34,6 +34,16 @@ def main():
     #    Calculate habitat recovery
     #
     #    For each stressor
+    #       calculate pairwise exposure, consequence from:
+    #           * habitat/stressor parameters
+    #           * EDT of the stressor and buffer distance
+    #           * The habitat raster
+    #           --> The calculation will only happen for habitat pixels that are within the
+    #           buffer distance of the stressor in question.
+    #           --> Once calculated, the numerator is multiplied by the EDT-derived decay
+    #           function.  Thus, stressors overlapping a habitat have larger
+    #           values, and habitat pixels some distance away from stressors
+    #           will have very small or 0 scores from this stressor.
     #       calculate the pairwise exposure score
     #       calculate the pairwise consequence score
     #       calculate the pairwise risk score from exposure, consequence
